@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="1"
+    android:versionName="1.0"
+    package="com.here.android.example.venue">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Indoor  Routing">
+
+        <!--Developers should put application credentials here.To obtain them, please register the application
+         at https://developer.here.com/develop/mobile-sdks-->
+        <meta-data
+            android:name="com.here.android.maps.appid"
+            android:value="9BtjsbNE4r3fL7OAl2j5" />
+        <meta-data
+            android:name="com.here.android.maps.apptoken"
+            android:value="wYkSOTUvULZSFbET0QTjCQ" />
+        <meta-data
+            android:name="com.here.android.maps.license.key"
+            android:value="fr2Aw3skQ76ur3vMY1043cA7yAd2RkB9QDT2vkwledtrfJ2lzoYKOgr6xXEXQggh6cJk0B6s4lKGRyHOqUfkiq/YVqhyyYbd/wSD2o1gjbdXC25SBk1Gnb/ia95DeaLpP7wVyc0dtlLVbDLKTZwxo8WjOzH9XGmMNqhTtMnRfxAwynb9ATkhsNdGSpfmM7JN6pjuYx408nc7sowBQkHesDAuUxkzrdGavQPnMHzDwrpnQGCbmd1xi28MIO8jkYPCMgb2l+W+8DjkTEa5iAwVzf4vlwlh+BHK4AkVkDbco5TPAASCGeW+Rfmgb4Q6KtU7vVlHwfv7wIEBAN9jh1G7BBOzD3KbxeJx9kNQznQaS12Qtl2KhFwOA7tp0zN1WxAVxtTonY4WXY1gW13waqWWjcbTooOiFrAWcjYohP1/0mOgRRZrrrMJrkZteV6GrkSD5iPZMDRnOtvFyLDNNILWlTdVqdKsKKOBjE7jZVII4EjZ7m3m1XUiiFLWRccA/9Voaq5ffZ6dS5w+QMCAQaKBDm0WGug1IhjPVit0MEttdRsZBJkoeoTw7tq8j2P2YulLlyzeRYP7o6yWOX9ihCn2iuiXLi29uPUxBygn8V7d74nXOfF2ohpPD/i1liqvDnAJW6VlQW/sUxGqg/sfF5yDSDfzq3h1hpwScsgttp6/TLE=" />
+
+        <activity
+            android:label="Indoor Routing"
+            android:name=".Venue3dActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--Developers should always provide custom values for each of {YOUR_LABEL_NAME} and {YOUR_INTENT_NAME}.
+         Do not reuse HERE SDK defaults.-->
+        <meta-data
+            android:name="INTENT_NAME"
+            android:value="intentrouting" />
+        <service
+            android:name="com.here.android.mpa.service.MapService"
+            android:label="labelrouting"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="intentrouting"></action>
+            </intent-filter>
+        </service>
+    </application>
+</manifest>
